@@ -1,6 +1,6 @@
 #### MRR
 
-[MySQL 5.6文档链接](https://dev.mysql.com/doc/refman/5.6/en/mrr-optimization.html)
+[MySQL MRR 5.6文档链接](https://dev.mysql.com/doc/refman/5.6/en/mrr-optimization.html)
 
 通过二级索引进行**范围查询**会导致大量的**随机磁盘访问**，当表比较大并且没有存储在存储引擎的缓存中时。通过Disk-Sweep Multi-Range Read(MRR)优化策略，MySQL尝试减少随机磁盘访问的数量通过首先查找二级索引，并且收集对应行的主键。然后将收集到的主键进行排序并按照排完序的主键进行回表查询。
 
